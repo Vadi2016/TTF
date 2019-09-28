@@ -7,7 +7,8 @@ package ru.requeststop;
 
 import java.util.GregorianCalendar;
 
-import ru.funsys.avalanche.AvalancheRemote;
+import ru.requeststop.model.Dish;
+import ru.requeststop.model.Restaurant;
 import ru.requeststop.model.Train;
 
 /**
@@ -48,4 +49,19 @@ public class FunctionService {
 	}
 
 
+	/**
+	 * Получить меню рестора
+	 * 
+	 * @param code код ресторана
+	 * 
+	 * @return меню
+	 */
+	public Dish[] getMenu(String code, String lang) {
+		return Restaurant.getMenu(code);
+	}
+
+	public Restaurant[] getRestaurants(String code, String lang) {
+		return Restaurant.getRestaurants(code);
+	}
+	
 }

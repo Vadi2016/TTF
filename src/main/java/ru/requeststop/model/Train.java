@@ -3,6 +3,7 @@
  */
 package ru.requeststop.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,10 +12,15 @@ import java.util.GregorianCalendar;
  * @author Валерий Лиховских
  *
  */
-public class Train {
+public class Train implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5353720433335139856L;
+	
 	String number;
-	GregorianCalendar date;
+	GregorianCalendar date; 
 	String start;
 	String finish;
 	

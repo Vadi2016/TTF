@@ -3,7 +3,6 @@
  */
 package ru.requeststop;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -16,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import ru.funsys.avalanche.Application;
+import ru.requeststop.model.Restaurant;
 
 
 /**
@@ -34,9 +34,10 @@ public class ApplicationREST extends Application {
 	
 	private static final String UTF_8 = "utf8"; // NOI18N 
 	
-	private static final String ROUTE001E = "ROUTE001E"; // NOI18N 
-	private static final String ROUTE002E = "ROUTE002E"; // NOI18N 
-	private static final String ROUTE003E = "ROUTE003E"; // NOI18N 
+	private static final String TTF0001E = "TTF0001E"; // NOI18N 
+	private static final String TTF0002E = "TTF0002E"; // NOI18N 
+	private static final String TTF0003E = "TTF0003E"; // NOI18N 
+	private static final String TTF0004E = "TTF0004E"; // NOI18N 
 
 	/**
 	 * Адаптер доступа к функии поиска маршрутов
@@ -90,7 +91,7 @@ public class ApplicationREST extends Application {
 			return Response.ok(adapterService.searchByTicketNumber(number, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
 		} catch (Throwable throwable) {
 			// TODO: handle exception
-			return RestExceptionMapper.newRestException(logger, throwable, ROUTE001E, lang);
+			return RestExceptionMapper.newRestException(logger, throwable, TTF0001E, lang);
 		}
 		
 	}
@@ -123,8 +124,39 @@ public class ApplicationREST extends Application {
 			return Response.ok(adapterService.searchByTrainNumber(station, calendar, number, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
 		} catch (Throwable throwable) {
 			// TODO: handle exception
-			return RestExceptionMapper.newRestException(logger, throwable, ROUTE003E, lang);
+			return RestExceptionMapper.newRestException(logger, throwable, TTF0002E, lang);
 		}
 	}
 
+	@GET
+	@Path("/restaurants")
+	@Produces("application/json")
+	public Response getRestaurants(@QueryParam("lang") @DefaultValue("ru") String lang,
+								@QueryParam("code") String code) {
+    	try {
+			return Response.ok(adapterService.getRestaurants(code, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
+		} catch (Throwable throwable) {
+			// TODO: handle exception
+			return RestExceptionMapper.newRestException(logger, throwable, TTF0003E, lang);
+		}
+	}
+	
+	@GET
+	@Path("/menu")
+	@Produces("application/json")
+	public Response getMenu(@QueryParam("lang") @DefaultValue("ru") String lang,
+								@QueryParam("code") String code) {
+    	try {
+			return Response.ok(adapterService.getMenu(code, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
+		} catch (Throwable throwable) {
+			// TODO: handle exception
+			return RestExceptionMapper.newRestException(logger, throwable, TTF0004E, lang);
+		}
+	}
+
+	static {
+		// Пустой вызов для инициализации статического кода, эмулирующего модель данных
+		Restaurant.init();
+	}
+	
 }

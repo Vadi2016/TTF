@@ -3,6 +3,7 @@
  */
 package ru.requeststop.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -10,13 +11,21 @@ import java.util.GregorianCalendar;
  * @author Валерий Лиховских
  *
  */
-public class Station {
+public class Station  implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8302556393791120010L;
+	
 	String station;
 	String arrival; // прибытие
 	String departure; // отправление
 	GregorianCalendar date; // дата стоянки
 	int stoping; // стоянка
+	
+	String code;
+	
 	/**
 	 * @param station
 	 * @param arrival
@@ -31,7 +40,12 @@ public class Station {
 		this.departure = departure;
 		this.date = date;
 		this.stoping = stoping;
+		
+		int hash = station.hashCode();
+		if (hash < 0) hash = hash * -1;
+		code = new Integer(hash).toString();
 	}
+	
 	public String getStation() {
 		return station;
 	}
@@ -48,6 +62,13 @@ public class Station {
 		return stoping;
 	}
 	
+	/**
+	 * Получить код станции/города
+	 * @return
+	 */
+	public String getCode() {
+		return code;
+	}
 
 	
 }
