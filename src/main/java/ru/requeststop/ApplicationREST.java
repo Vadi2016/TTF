@@ -116,11 +116,11 @@ public class ApplicationREST extends Application {
 	@Produces( "application/json" )
 	public Response findByNumber(@QueryParam("lang") @DefaultValue("ru") String lang,
                               @QueryParam("station") String station,
-                              @QueryParam("date") Date date,
+                              @QueryParam("date") String date,
                               @QueryParam("number") String number) {
     	try {
     		GregorianCalendar calendar = new GregorianCalendar();
-    		if (date!= null) calendar.setTime(date);
+    		//if (date != null) calendar.setTime(date);
 			return Response.ok(adapterService.searchByTrainNumber(station, calendar, number, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
 		} catch (Throwable throwable) {
 			// TODO: handle exception
