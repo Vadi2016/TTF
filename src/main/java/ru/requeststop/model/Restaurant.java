@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Date;
 
 
 /**
@@ -25,6 +26,24 @@ public class Restaurant implements Serializable  {
 	String name;
 	String image;
 	BigDecimal rating; // кухня
+	int begin; // начало работы ресторана
+	int end; // окончание работы ресторана
+	public void setBegin(int begin) {
+		this.begin = begin;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	public int getBegin() {
+		return begin;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
 	BigDecimal minSumma;
 	String code;
 	
@@ -48,6 +67,8 @@ public class Restaurant implements Serializable  {
 		this.minSumma = minSumma;
 		this.kitchen = kitchen;
 		this.menu = menu;
+		begin = 10;
+		end = 24;
 		
 		int hash = name.hashCode() + city.hashCode();
 		if (hash < 0) hash = hash * -1;
@@ -100,14 +121,8 @@ public class Restaurant implements Serializable  {
 		return (Restaurant[]) list.toArray(result);
 	}
 	
-	public static Dish[] getMenu(String code) {
-		Restaurant restaurant = restaurants.get(code);
-		if (restaurant != null) {
-			if (restaurant.menu != null) {
-				return restaurant.menu; 
-			}
-		}
-		return new Dish[0];
+	public static Restaurant getRestaurant(String code) {
+		return restaurants.get(code);
 	}
 	
 	public static void init() {
