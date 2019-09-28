@@ -1,0 +1,25 @@
+<div class="inner">
+  <form [formGroup]="data" (ngSubmit)="onSubmit()" [ngStyle]="{width: '100%'}" class="ui form">
+    <div class="field">
+      <div class="ui input">
+        <input type="text" formControlName="ticketNum" placeholder="Номер билета">
+        <img src="../../../assets/img/icon/icon.ico" alt="" (click)="openCamera()">
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" name="phone" placeholder="Номер телефона">
+    </div>
+    <div class="ui two columns grid">
+      <div class="ui six wide column">
+        <button class="ui button red big" type="submit">Вход</button>
+      </div>
+
+      <div class="ui ten wide column links">
+        <a href="https://www.rzd.ru/timetable/logon/ru#BY_LOGIN">Войти через сайт РЖД?</a>
+        <a href="https://www.rzd.ru/selfcare/register/ru">Зарегистрироваться на сайте РЖД?</a>
+      </div>
+    </div>
+
+  </form>
+</div>
+
