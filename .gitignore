@@ -146,8 +146,7 @@ cmake-build-*/
 out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
-
+.idea_modules/                                                                                                       
 # JIRA plugin
 atlassian-ide-plugin.xml
 
@@ -165,6 +164,7 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
 
  See http://help.github.com/ignore-files/ for more about ignoring files.
 
@@ -208,3 +208,8 @@ testem.log
 /typings
 
 /frontend/node_modules/
+
+# Eclipse IDE
+src/main/webapp/WEB-INF/lib/ 
+target/
+
