@@ -46,14 +46,14 @@ public interface AdapterService {
 	public Train searchByTrainNumber(String station, GregorianCalendar date, String number, String lang) throws AvalancheRemote; 
 
 	/**
-	 * Получить меню ресторана
+	 * Получить описание и меню ресторана
 	 * 
 	 * @param code код ресторана
 	 * @param lang язык запроса
 	 * 
-	 * @return меню
+	 * @return ресторан
 	 */
-	public Dish[] getMenu(String code, String lang)  throws AvalancheRemote;
+	public Restaurant getRestaurant(String code, String lang)  throws AvalancheRemote;
 
 	/**
 	 * Получить список ресторанов

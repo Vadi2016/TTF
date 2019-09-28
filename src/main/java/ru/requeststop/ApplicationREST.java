@@ -142,12 +142,12 @@ public class ApplicationREST extends Application {
 	}
 	
 	@GET
-	@Path("/menu")
+	@Path("/restaurant")
 	@Produces("application/json")
 	public Response getMenu(@QueryParam("lang") @DefaultValue("ru") String lang,
 								@QueryParam("code") String code) {
     	try {
-			return Response.ok(adapterService.getMenu(code, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
+			return Response.ok(adapterService.getRestaurant(code, lang)).type(MediaType.APPLICATION_JSON_TYPE.withCharset(UTF_8)).build();
 		} catch (Throwable throwable) {
 			// TODO: handle exception
 			return RestExceptionMapper.newRestException(logger, throwable, TTF0004E, lang);
