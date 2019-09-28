@@ -5,6 +5,8 @@ package ru.requeststop;
 
 import java.util.GregorianCalendar;
 
+import ru.requeststop.model.Bish;
+import ru.requeststop.model.Restaurant;
 import ru.requeststop.model.Train;
 import ru.funsys.avalanche.AvalancheRemote;
 
@@ -42,4 +44,27 @@ public interface AdapterService {
 	 * @throws AvalancheRemote
 	 */
 	public Train searchByTrainNumber(String station, GregorianCalendar date, String number, String lang) throws AvalancheRemote; 
+
+	/**
+	 * Получить меню ресторана
+	 * 
+	 * @param code код ресторана
+	 * @param lang язык запроса
+	 * 
+	 * @return меню
+	 */
+	public Bish[] getBishs(String code, String lang)  throws AvalancheRemote;
+
+	/**
+	 * Получить список ресторанов
+	 * 
+	 * @param code код города/станции
+	 * @param lang язык запроса
+	 * 
+	 * @return список расторан
+	 * 
+	 * @throws AvalancheRemote
+	 */
+	public Restaurant[] getRestaurants(String code, String lang) throws AvalancheRemote;
+
 }
