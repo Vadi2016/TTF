@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../_models';
 
 
 @Injectable()
-export class UserApiService {
+export class ApiService {
 
   constructor(private httpClient: HttpClient) {
   }
@@ -26,5 +25,17 @@ export class UserApiService {
   //
   // register(user: User) {
   //   return this.httpClient.post('${API_URL}/accounts/registration', user);
+  // }
+
+  // getStation(): Observable<any[]> {
+  //   return this.httpClient.get<any[]>('http://localhost:8080/ttf/cxf/service/findByTicket?number=002');
+  // }
+  //
+  // getSRestaurants(): Observable<any[]> {
+  //   return this.httpClient.get<any[]>('http://localhost:8080/ttf/cxf/service/restaurants?code=817875152');
+  // }
+  //
+  // getMenues(): Observable<any[]> {
+  //   return this.httpClient.get<any[]>('http://localhost:8080/ttf/cxf/service/menu?code=922460118')
   // }
 }

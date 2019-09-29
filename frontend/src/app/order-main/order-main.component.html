@@ -87,7 +87,7 @@
       </div>
       <div id="train-num" *ngIf="!fromRZD">№002 Москва - Екатеринбург</div>
       <div class="ui dropdown routes">
-        <input type="hidden" [(ngModel)]="routes" name="routes">
+        <input type="hidden" [(ngModel)]="routes" (ngModelChange)="choosedDirection()" name="routes">
         <div class="default text">Выберите направление</div>
         <i class="dropdown icon"></i>
         <div class="menu">
@@ -192,7 +192,7 @@
             <div class="overlay">
               <span>ДоДо Пицца</span>
               <p>Европейская, азиатская, итальянская, японская </p>
-              <a href="#">Посмотреть все меню</a>
+              <a routerLink="/restaurant">Посмотреть все меню</a>
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@
             <div class="overlay">
               <span>ДоДо Пицца</span>
               <p>Европейская, азиатская, итальянская, японская </p>
-              <a href="#">Посмотреть все меню</a>
+              <a routerLink="restaurant/24">Посмотреть все меню</a>
             </div>
           </div>
         </div>
@@ -355,7 +355,7 @@
             <li>Здоровая еда</li>
             <li>Вегги</li>
             <li>Шаверма</li>
-            <li>Итальянская</li>
+            <li class="active">Итальянская</li>
             <li>Грузинская</li>
             <li>Русская</li>
           </ul>
@@ -424,7 +424,7 @@
             <div class="prev">
               <div class="line"></div>
             </div>
-            <div class="pagination"><strong>06</strong>/<span>106</span></div>
+            <div class="pagination"><strong>01</strong>/<span>06</span></div>
             <div class="next">
               <div class="line"></div>
             </div>
@@ -435,7 +435,49 @@
 
       <div class="construct-menu">
         <div class="head-text"><strong>Выберите обед</strong><br> из любимых блюд</div>
-
+        <div class="questions">
+          <div class="question-text">
+            Отведьте на вопросы что бы составить свое меню
+            <img src="../../assets/img/progressbar.png" alt="">
+            <span>Шаг 1 из 4</span>
+            <strong>Какое основное блюдо вы хотите?</strong>
+            <div class="ui four column grid quest-dishes">
+              <div class="column">
+              <div class="inner">
+                <img src="../../assets/img/rest.png" alt="">
+                <div class="overlay active">
+                  Овощи
+                </div>
+              </div>
+            </div>
+              <div class="column">
+                <div class="inner">
+                  <img src="../../assets/img/rest.png" alt="">
+                  <div class="overlay">
+                    Рыба
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="inner">
+                  <img src="../../assets/img/rest.png" alt="">
+                  <div class="overlay">
+                    Мясо
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="inner">
+                  <img src="../../assets/img/rest.png" alt="">
+                  <div class="overlay">
+                    Супы
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="next-quest"><button class="ui button">Сдедующий вопрос</button></div>
+        </div>
       </div>
     </div>
   </div>

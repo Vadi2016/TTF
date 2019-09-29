@@ -1,5 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {ApiService} from "../_services";
 
 declare var $: any;
 
@@ -10,8 +12,11 @@ declare var $: any;
 })
 export class OrderMainComponent implements OnInit {
 
-  constructor(public renderer: Renderer2) {
+  constructor(public renderer: Renderer2,
+              // private apiService: ApiService
+  ) {
   }
+
 
   stationList: string[] = ['Москва'];
   isTrainGo = false;
@@ -24,6 +29,9 @@ export class OrderMainComponent implements OnInit {
   ngOnInit() {
     this.stationList.push('Самара', 'Нижний Новгород', 'Вязники', 'Екатиринбург');
 
+    // this.apiService.getStation().subscribe(res => {
+    //   console.log(res);
+    // });
     $('.ui.dropdown').dropdown();
   }
 
@@ -32,5 +40,13 @@ export class OrderMainComponent implements OnInit {
     this.trainIsLeft = event.pageX - OFFSET_X;
 
     // this.el.nativeElement.style.offsetLeft = this.trainIsLeft;
+  }
+
+  choosedDirection() {
+
+  }
+
+  onClikedDot() {
+
   }
 }

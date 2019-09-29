@@ -19,6 +19,7 @@ import {
 import {OrderMainComponent} from './order-main/order-main.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { RestaurantComponent } from './restaurant/restaurant.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
     MainComponent,
     OrderRegModalComponent,
     RegistrationComponent,
-    OrderMainComponent
+    OrderMainComponent,
+    RestaurantComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<avalanche name="TTF" description="Проект хакатона">
+
+    <!-- Определение файлов локализации приложения                                            -->
+	<locale name="ru.requeststop.LocaleStrings" />
+	
+	<!-- Функционал загрузки справочников приложения из БД                                          -->
+	<!--     name   - имя функции, под которым она известна в локальной системе, по этому имени     -->
+	<!--              адаптеры приложений получают доступ к методам этой функции                    -->
+	<function class="ru.requeststop.FunctionService" name="function-service" 
+	          description="Функция поиска маршрутов" >
+	</function>
+
+	<!-- Реализация сервисов приложения                                                             -->
+	<!--     service - признак наличия методов реализации REST сервисов в экземпляре класса         -->
+	<application class="ru.requeststop.ApplicationREST" name="rest-service" service="true">
+		<!-- Адаптер вызова методов функции ru.requeststop.AdapterRoute                             -->
+		<!--     name - имя адаптера, значение adapterRoute определяет имя поля в классе приложения -->
+		<!--            ru.requeststop.ApplicationREST или имя метода                               -->
+		<!--            setAdapterRoute(AdapterRoute adapterRoute) это класса                       -->
+		<!--     uri  - имя локальной функции, методы которой вызываются с использованием           -->
+		<!--            этого адаптера (см. функцию ru.requeststop.FunctionRoute)                   -->
+		<adapter class="ru.requeststop.AdapterService" name="adapterService" uri="function-service" />
+	
+	</application>
+
+</avalanche>
