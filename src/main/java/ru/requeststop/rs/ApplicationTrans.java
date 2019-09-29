@@ -3,13 +3,15 @@
  */
 package ru.requeststop.rs;
 
+import ru.funsys.avalanche.Avalanche;
+
 import java.util.Set;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.ws.rs.core.Application;
 
-import ru.funsys.avalanche.Avalanche;
+
 
 /**
  * <p>Класс регистрации реализованных REST сервисов в сервлете Jersey (JAX-RS 2.0)

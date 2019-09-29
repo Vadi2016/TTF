@@ -14,6 +14,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
 import ru.funsys.avalanche.Application;
 import ru.requeststop.model.Restaurant;
 
@@ -100,7 +101,7 @@ public class ApplicationREST extends Application {
 	 * Получить расписание движения поезда по станции оправления, дате и номеру поезда
 	 * 
 	 * @param lang язак возвращаемого результата
-	 * @param sattion станция отправления
+	 * @param satation станция отправления
 	 * @param date дата отправления
 	 * @param number номер поезда 
 	 * 
