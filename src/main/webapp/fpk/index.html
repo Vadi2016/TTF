@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Статистика заказов пассажирами поездов.</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<style type="text/css">
+ul {
+  list-style: none; /*убираем маркеры списка*/
+  margin: 0; /*убираем верхнее и нижнее поле, равное 1em*/
+  padding-left: 0; /*убираем левый отступ, равный 40px*/
+}
+a {text-decoration: none; /*убираем подчеркивание текста ссылок*/}
+li {display: inline-block;}
+</style>
+<script type="text/javascript">
+function show(event) {
+	var img = document.createElement("img");
+    img.src = event.href;
+    img.style.height = '700px';
+    img.style.width = '700px';
+    var element = document.getElementById('imageBox');
+
+    var child = element.lastElementChild;  
+    while (child) { 
+    	element.removeChild(child); 
+        child = element.lastElementChild;
+    }
+    element.appendChild(img);
+	
+}
+
+
+</script>
+</head>
+<body>
+<h1 align="center">Заказы еды пассажирами поездов.</h1>
+<nav class="two">
+<ul>
+<li><a href="../image/fpk-page1.jpg" onclick="show(this);return false;">Распределение заказов<br/>по рестораторам</a></li>
+<li><a href="../image/fpk-page2.jpg" onclick="show(this);return false;">Распределение заказаов<br/> по поездам</a></li>
+<li><a href="../image/fpk-page3.jpg" onclick="show(this);return false;">Участники партнерской<br>программы</a></li>
+</ul>
+<div id="imageBox">
+
+</div>
+</nav>
+</body>
+</html>
